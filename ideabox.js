@@ -38,25 +38,37 @@ $('.ideas').on('click',function(event){
 
 
 
-$('.ideas').on('click',function(event){
+$('.ideas').on('click', upIdeaQuality);
+
+function upIdeaQuality(event){
 	event.preventDefault();
+	var n = $('.quality').text();
+	if(event.target.className === 'up'){
+		if(n === 'swill'){
+			$('.quality').text('plausible');
+		}
+	}
 
-	if(event.target.className === 'up') {
-		if (($('.quality').val()) === "swill"){
-			$('.quality').text(`plausible`)
-			};
-		if (($('.quality').val()) === "plausible"){
-			$('.quality').text(`genius`);
-			}
-		});
+	if(event.target.className === 'up'){
+		if(n === 'plausible'){
+			$('.quality').text('genius');
+		}
+	}
+}
 
+$('.ideas').on('click', downIdeaQuality);
 
-// function downIdeaQuality(event){
-// 	if(event.target.className === 'down'){
-// 		console.log(10);
-// 		if (($('.quality').val()) === "genius"){
-// 			$('.quality').text(`plausible`)
-// 			}
-// 		if (($('.quality').val()) === "plausible"){
-// 			$('.quality').text(`swill`)
-// 			}
+function downIdeaQuality(event){
+	event.preventDefault();
+	var n = $('.quality').text();
+	if(event.target.className === 'down'){
+		if(n === 'genius'){
+			$('.quality').text('plausible');
+		}
+	}
+	if(event.target.className === 'down'){
+		if(n === 'plausible'){
+			$('.quality').text('swill');
+		}
+	}
+}
