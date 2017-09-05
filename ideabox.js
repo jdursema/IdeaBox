@@ -3,7 +3,9 @@ var ideaInput = $('.body-input');
 
 
 $('.save-button').on('click', prependCard);
-// $('.ideas').on('click', downIdeaQuality);
+$('.ideas').on('click', upIdeaQuality);
+$('.ideas').on('click', downIdeaQuality);
+$('.search-input').keyup(search);
 
 
 function prependCard(event) {
@@ -37,9 +39,6 @@ $('.ideas').on('click',function(event){
 });
 
 
-
-$('.ideas').on('click', upIdeaQuality);
-
 function upIdeaQuality(event){
 	event.preventDefault();
 	var n = $('.quality').text();
@@ -56,7 +55,6 @@ function upIdeaQuality(event){
 	}
 }
 
-$('.ideas').on('click', downIdeaQuality);
 
 function downIdeaQuality(event){
 	event.preventDefault();
@@ -72,3 +70,22 @@ function downIdeaQuality(event){
 		}
 	}
 }
+
+function search(){
+	var searchInput = $('.search-input').val();
+	var filter = searchInput.toUpperCase();
+	console.log(filter);
+	for(i=0; i<titleInput.length; i++){
+		titleInput.val().toUpperCase()===filter
+		if(titleInput.val().toUpperCase().indexOf(filter) === -1){
+			console.log(4)
+			// $('.ideas').hide();
+		}
+		// if(searchInput === ''){
+		// 	$('.ideas').slideDown();
+		// }
+	}
+}
+
+// ideaInput.val().toUpperCase().indexOf(filter)>-1)
+
