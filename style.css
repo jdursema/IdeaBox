@@ -23,8 +23,24 @@ span{
 	color: #6D6E71;
 }
 
+.title-input,
+.delete,
+.idea-input,
+.quality,
+.up, .down{
+	padding: 5px;
+}
+
+.quality,
+.up, .down{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+
 .input,
-.save-button{
+.save-button,
+.ideas{
 	box-sizing: border-box;
 	display: block;
 	font-size: 3vw;
@@ -34,6 +50,9 @@ span{
 
 .input{
 	border: 2px solid #D5D5D7;
+	padding-left: 5px;
+	font-size: 2.5vw;
+	font-weight: 500;
 }
 
 .input::placeholder{
@@ -57,4 +76,48 @@ section{
 	background-color: #FFF;
 	padding-top: 10px;
 	min-height: 100vh;
+}
+
+.ideas{
+	background-color: #FFF;
+	color: #455A64;
+	display: block;
+	margin: 20px;
+	margin: auto;
+}
+
+button.ideas,
+h2{
+	display: inline-block;
+}
+
+.delete{
+	float: right;
+}
+
+h2.title-input,
+.quality{
+	color: #6D6E71;
+	font-weight: 700;
+	font-family: 'Roboto Slab', serif;
+}
+
+.quality,
+.quality-type{
+	font-size: 2.25vw;
+}
+
+.quality-type{
+	display: inline-block;
+	font-family: 'Roboto Slab', sans-serif;
+	font-weight: 500;
+	padding: 5px;
+	margin-right: 20px;
+}
+
+.idea-input{
+	color: #939598;
+	font-size: 2vw;
+	line-height: 1.5;
+	margin: 10px auto 10px;
 }
