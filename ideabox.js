@@ -38,37 +38,37 @@ $('.ideas').on('click',function(event){
 
 
 
-$('.up').on('click', upIdeaQuality);
+$('.ideas').on('click', upIdeaQuality);
 
 function upIdeaQuality(event){
 	event.preventDefault();
 	var n = $('.quality-type').text();
 	if(event.target.className === 'up'){
 		if(n === 'swill'){
-			$('.quality-type').text('  '+'plausible');
+			$('.quality-type').text('plausible');
 		}
 	}
 
 	if(event.target.className === 'up'){
 		if(n === 'plausible'){
-			$('.quality-type').text('  '+'genius');
+			$('.quality-type').text('genius');
 		}
 	}
 }
 
-$('.down').on('click', downIdeaQuality);
+$('.ideas').on('click', downIdeaQuality);
 
 function downIdeaQuality(event){
 	event.preventDefault();
 	var n = $('.quality-type').text();
 	if(event.target.className === 'down'){
 		if(n === 'genius'){
-			$('.quality-type').text('  '+'plausible');
+			$('.quality-type').text('plausible');
 		}
 	}
 	if(event.target.className === 'down'){
 		if(n === 'plausible'){
-			$('.quality-type').text('  '+'swill');
+			$('.quality-type').text('swill');
 		}
 	}
 }
