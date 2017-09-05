@@ -1,11 +1,12 @@
 var titleInput = $('.title-input');
 var ideaInput = $('.body-input');
+var allTheThings= $('h2')
 
 
 $('.save-button').on('click', prependCard);
 $('.ideas').on('click', upIdeaQuality);
 $('.ideas').on('click', downIdeaQuality);
-$('.search-input').keyup(search);
+// $('.search-input').keyup(search);
 
 
 function prependCard(event) {
@@ -13,9 +14,9 @@ function prependCard(event) {
 	
 	$('.ideas').prepend(
 		`<div class="ideaBox">
-			<h2>${titleInput.val()}</h2>
+			<h2 contentEditable = "true">${titleInput.val()}</h2>
 				<button class="delete">x</button>
-				<p>${ideaInput.val()}</p>
+				<p contentEditable= "true">${ideaInput.val()}</p>
 				<p class="quality">swill</p>
 				<button class="up">up</button>
 				<button class="down">down</button>
@@ -57,7 +58,6 @@ function upIdeaQuality(event){
 
 
 function downIdeaQuality(event){
-	event.preventDefault();
 	var n = $('.quality').text();
 	if(event.target.className === 'down'){
 		if(n === 'genius'){
@@ -71,21 +71,27 @@ function downIdeaQuality(event){
 	}
 }
 
-function search(){
-	var searchInput = $('.search-input').val();
-	var filter = searchInput.toUpperCase();
-	console.log(filter);
-	for(i=0; i<titleInput.length; i++){
-		titleInput.val().toUpperCase()===filter
-		if(titleInput.val().toUpperCase().indexOf(filter) === -1){
-			console.log(4)
-			// $('.ideas').hide();
-		}
-		// if(searchInput === ''){
-		// 	$('.ideas').slideDown();
-		// }
-	}
-}
+
+
+
+// function search(){
+
+// 	var searchInput = $('.search-input').val();
+// 	var filter = searchInput.toUpperCase();
+// 	// console.log(filter);
+// 	for(i=0; i<titleInput.length; i++){
+// 		// titleInput.val().toUpperCase()===filter
+// 		if(h2.val().toUpperCase() !== filter){
+// 			// console.log(4)
+// 			console.log(filter)
+// 			console.log(titleInput.val().toUpperCase())
+// 			$('.ideas').hide();
+// 		}
+// 		// if(searchInput === ''){
+// 		// 	$('.ideas').slideDown();
+// 		// }
+// 	}
+// }
 
 // ideaInput.val().toUpperCase().indexOf(filter)>-1)
 
