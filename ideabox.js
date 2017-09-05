@@ -74,6 +74,8 @@ function downIdeaQuality(event){
 	}
 }
 
+
+
 //NPM Browser-ready Version1 https://www.npmjs.com/package/uuid
 function uniqueID(){
 	var uuid = uuidv1();
