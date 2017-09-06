@@ -15,7 +15,7 @@ function saveFunction(event) {
 	var ideaInputValue = ideaInput.val()
 	var idea = new Idea(titleInputValue, ideaInputValue);
 	myArray.push(idea);
-	
+
 	
 	createCard(idea);
 	clearInputFields();
@@ -48,16 +48,19 @@ function Idea(titleInputValue, ideaInputValue){
 	this.quality = 'swill';
 }
 
-
-
-function storage (){
+function storage(){
 	var stringyArray = JSON.stringify(myArray);
 	localStorage.setItem("allItem", stringyArray);
+	console.log(stringyArray);
 }
 
 function takesFromStorage(){
-	var returnedArray = JSON.parse(localStorage.getItem("allItem")) || [];
-	returnedArray.forEach(function(idea){
+	return (JSON.parse(localStorage.getItem("allItem")) || []);
+}
+
+function cardLoader(array){
+	console.log(array);
+	array.forEach(function(idea){
 		createCard(idea);
 	})
 }
