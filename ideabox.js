@@ -1,13 +1,18 @@
 var titleInput = $('.title-input');
 var ideaInput = $('.body-input');
-var myArray= [];
+var myArray = [];
 
 
 $('.save-button').on('click', saveFunction);
-$(window).on('load', takesFromStorage)
+$(window).on('load', function(){
+	loadFromStorage();
+	console.log(localStorage);
+})
 
 // $('.ideas').on('click', downIdeaQuality);
 
+Object.keys(localStorage)
+//grab all ids by key and populate the DOM on every event. iterate through keys and build idea cards
 
 function saveFunction(event) {
 	event.preventDefault();
@@ -19,7 +24,7 @@ function saveFunction(event) {
 	
 	createCard(idea);
 	clearInputFields();
-	storage ();
+	storage(idea);
 	// uniqueID();
 }
 
@@ -48,14 +53,24 @@ function Idea(titleInputValue, ideaInputValue){
 	this.quality = 'swill';
 }
 
-function storage(){
-	var stringyArray = JSON.stringify(myArray);
-	localStorage.setItem("allItem", stringyArray);
-	console.log(stringyArray);
+function storage(idea){
+	var stringyArray = JSON.stringify(idea);
+	localStorage.setItem(`${idea.id}`, stringyArray);
 }
 
-function takesFromStorage(){
-	return (JSON.parse(localStorage.getItem("allItem")) || []);
+function loadFromStorage(idea){
+	var keys = Object.keys(localStorage);
+	for (var i = 0; i < localStorage.length; i++){
+		var ideaString = localStorage.getItem(keys[i]);
+		var ideaObject = JSON.parse(ideaString);
+		createCard(ideaObject);
+		// createCard(JSON.parse(localStorage.getItem(keys[i])))
+	}
+}
+
+function getFromStorage(id){
+	var ideaString = localStorage.getItem(id);
+	return JSON.parse(ideaString);
 }
 
 function cardLoader(array){
@@ -74,10 +89,12 @@ function cardLoader(array){
 
 $('.ideas').on('click',function(event){
 	event.preventDefault();
-	var currentIdea= $(event.target).closest('div');
+	var $currentIdea = $(event.target).closest('div');
 
 	if(event.target.className === 'delete'){
-		currentIdea.remove();
+		$currentIdea.remove();
+		var idOfCurrentIdea = $currentIdea.prop('id');
+		localStorage.removeItem(idOfCurrentIdea);
 	}
 });
 
