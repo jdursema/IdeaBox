@@ -1,32 +1,76 @@
 var titleInput = $('.title-input');
 var ideaInput = $('.body-input');
+var myArray= [];
 
 
-$('.save-button').on('click', prependCard);
+$('.save-button').on('click', saveFunction);
+$(window).on('load', takesFromStorage)
+
 // $('.ideas').on('click', downIdeaQuality);
 
 
-function prependCard(event) {
+function saveFunction(event) {
 	event.preventDefault();
+	var titleInputValue = titleInput.val()
+	var ideaInputValue = ideaInput.val()
+	var idea = new Idea(titleInputValue, ideaInputValue);
+	myArray.push(idea);
+
 	
+	createCard(idea);
+	clearInputFields();
+	storage ();
+	// uniqueID();
+}
+
+function createCard(idea){
 	$('.ideas').prepend(
-		`<div class="ideaBox">
-			<h2 class="title-input">${titleInput.val()}</h2>
+		`<div class="ideaBox" id="${idea.id}" >
+			<h2 class="title-input" contenteditable="true">${idea.title}</h2>
 				<button class="delete">x</button>
-				<p class="idea-input">${ideaInput.val()}</p>
+				<p class="idea-input" contenteditable="true">${idea.body}</p>
 				<button class="up">up</button>
 				<button class="down">down</button>
-				<p class="quality">quality:<span class="quality-type">swill</span></p><hr color="#D1D3D4"/>
+				<p class="quality">quality:<span class="quality-type">${idea.quality}</span></p><hr color="#D1D3D4"/>
 		</div>`
 	);
-	clearInputFields();
-	uniqueID();
 }
 
 function clearInputFields(){
 	titleInput.val('');
 	ideaInput.val('');
 };
+
+function Idea(titleInputValue, ideaInputValue){
+	this.id = Date.now();
+	this.title = titleInputValue;
+	this.body = ideaInputValue;
+	this.quality = 'swill';
+}
+
+function storage(){
+	var stringyArray = JSON.stringify(myArray);
+	localStorage.setItem("allItem", stringyArray);
+	console.log(stringyArray);
+}
+
+function takesFromStorage(){
+	return (JSON.parse(localStorage.getItem("allItem")) || []);
+}
+
+function cardLoader(array){
+	console.log(array);
+	array.forEach(function(idea){
+		createCard(idea);
+	})
+}
+
+
+// var search = myArray.filter(function(titleInputValue, ideaInputValue){
+// 	return titleInputValue === $('.search').val()
+// 	return ideaInputValue === $('.search').val()
+// })
+
 
 $('.ideas').on('click',function(event){
 	event.preventDefault();
@@ -74,8 +118,11 @@ function downIdeaQuality(event){
 	}
 }
 
-//NPM Browser-ready Version1 https://www.npmjs.com/package/uuid
-function uniqueID(){
-	var uuid = uuidv1();
-	console.log(uuid);
-}
+
+
+
+// NPM Browser-ready Version1 https://www.npmjs.com/package/uuid
+// function uniqueID(){
+// 	var uuid = uuidv1();
+// 	console.log(uuid);
+// }
