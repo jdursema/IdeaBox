@@ -85,6 +85,40 @@ h2{
 	float: right;
 }
 
+.up,
+.up:hover,
+.down,
+.down:hover,
+.delete,
+.delete:hover{
+	display: inline-block;
+	height: 3vw;
+	width: 3vw;
+}
+.up{
+	background-image: url(images/upvote.svg);
+}
+
+.up:hover{
+	background-image: url(images/upvote-hover.svg);
+}
+
+.down{
+	background-image: url(images/downvote.svg);
+}
+
+.down:hover{
+	background-image: url(images/downvote-hover.svg);
+}
+
+.delete{
+	background-image: url(images/delete.svg);
+}
+
+.delete:hover{
+	background-image: url(images/delete-hover.svg);
+}
+
 h2.title-input,
 .quality{
 	color: #6D6E71;

@@ -100,10 +100,9 @@ $('.ideas').on('click',function(event){
 
 
 
-$('.ideas').on('click', upIdeaQuality);
+$('.ideas').on('click', '.up', upIdeaQuality);
 
 function upIdeaQuality(event){
-	event.preventDefault();
 	var n = $('.quality-type').text();
 	if(event.target.className === 'up'){
 		if(n === 'swill'){
@@ -118,10 +117,9 @@ function upIdeaQuality(event){
 	}
 }
 
-$('.ideas').on('click', downIdeaQuality);
+$('.ideas').on('click', '.down', downIdeaQuality);
 
 function downIdeaQuality(event){
-	event.preventDefault();
 	var n = $('.quality-type').text();
 	if(event.target.className === 'down'){
 		if(n === 'genius'){
