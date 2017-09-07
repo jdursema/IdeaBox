@@ -26,6 +26,56 @@ span{
 	color: #6D6E71;
 }
 
+.title-input,
+.body-input,
+.delete,
+.idea-input,
+.search-input,
+.quality,
+.up-vote, .down-vote{
+	padding: 5px;
+}
+
+.quality,
+.up-vote, .down-vote{
+	display: inline-block;
+	margin-right: 10;
+}
+
+.up-vote,
+.up-vote:hover,
+.down-vote,
+.down-vote:hover,
+.delete,
+.delete:hover{
+	display: inline-block;
+	height: 3vw;
+	width: 3vw;
+}
+.up-vote{
+	background-image: url(images/upvote.svg);
+}
+
+.up-vote:hover{
+	background-image: url(images/upvote-hover.svg);
+}
+
+.down-vote{
+	background-image: url(images/downvote.svg);
+}
+
+.down-vote:hover{
+	background-image: url(images/downvote-hover.svg);
+}
+
+.delete{
+	background-image: url(images/delete.svg);
+}
+
+.delete:hover{
+	background-image: url(images/delete-hover.svg);
+}
+
 /*Input Fields and Buttons*/
 .input,
 .save-button,
@@ -84,6 +134,8 @@ h2, .quality{
 	display: inline-block;
 	margin-right: 10px;
 	padding: 5px;
+	max-height: 3vw;
+	max-width: 3vw;
 }
 
 .delete{
@@ -144,7 +196,7 @@ h2.title-input,
 	margin-right: 20px;
 }
 
-.idea-input{
+.idea-input	{
 	color: #939598;
 	font-size: 2vw;
 	line-height: 1.5;

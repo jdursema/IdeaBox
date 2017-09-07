@@ -30,7 +30,8 @@ function saveFunction(event) {
 
 function createCard(idea){
 	$('.ideas').prepend(
-		`<div class="ideaBox" id="${idea.id}" >
+
+		`<div class="ideaBox" id = "${idea.id}">
 			<h2 class="title-input" contenteditable="true">${idea.title}</h2>
 				<div class="delete"></div>
 				<p class="idea-input" contenteditable="true">${idea.body}</p>
@@ -80,15 +81,14 @@ function cardLoader(array){
 	})
 }
 
-
 // var search = myArray.filter(function(titleInputValue, ideaInputValue){
 // 	return titleInputValue === $('.search').val()
 // 	return ideaInputValue === $('.search').val()
 // })
 
-
 $('.ideas').on('click',function(event){
 	event.preventDefault();
+
 	var $currentIdea = $(event.target).closest('.ideaBox');
 
 	if(event.target.className === 'delete'){
@@ -104,13 +104,13 @@ $('.ideas').on('click', '.up', upIdeaQuality);
 
 function upIdeaQuality(event){
 	var n = $('.quality-type').text();
-	if(event.target.className === 'up'){
+	if(event.target.className === 'up-vote'){
 		if(n === 'swill'){
 			$('.quality-type').text('plausible');
 		}
 	}
 
-	if(event.target.className === 'up'){
+	if(event.target.className === 'up-vote'){
 		if(n === 'plausible'){
 			$('.quality-type').text('genius');
 		}
@@ -121,23 +121,14 @@ $('.ideas').on('click', '.down', downIdeaQuality);
 
 function downIdeaQuality(event){
 	var n = $('.quality-type').text();
-	if(event.target.className === 'down'){
+	if(event.target.className === 'down-vote'){
 		if(n === 'genius'){
 			$('.quality-type').text('plausible');
 		}
 	}
-	if(event.target.className === 'down'){
+	if(event.target.className === 'down-vote'){
 		if(n === 'plausible'){
 			$('.quality-type').text('swill');
 		}
 	}
 }
-
-
-
-
-// NPM Browser-ready Version1 https://www.npmjs.com/package/uuid
-// function uniqueID(){
-// 	var uuid = uuidv1();
-// 	console.log(uuid);
-// }
