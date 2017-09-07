@@ -32,10 +32,10 @@ function createCard(idea){
 	$('.ideas').prepend(
 		`<div class="ideaBox" id="${idea.id}" >
 			<h2 class="title-input" contenteditable="true">${idea.title}</h2>
-				<button class="delete">x</button>
+				<div class="delete"></div>
 				<p class="idea-input" contenteditable="true">${idea.body}</p>
-				<button class="up">up</button>
-				<button class="down">down</button>
+				<div class="up"></div>
+				<div class="down"></div>
 				<p class="quality">quality:<span class="quality-type">${idea.quality}</span></p><hr color="#D1D3D4"/>
 		</div>`
 	);
@@ -89,7 +89,7 @@ function cardLoader(array){
 
 $('.ideas').on('click',function(event){
 	event.preventDefault();
-	var $currentIdea = $(event.target).closest('div');
+	var $currentIdea = $(event.target).closest('.ideaBox');
 
 	if(event.target.className === 'delete'){
 		$currentIdea.remove();
