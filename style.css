@@ -118,28 +118,62 @@ section{
 	padding-top: 10px;
 }
 
-button.ideas,
-h2{
+h2, .quality{
 	display: inline-block;
 }
 
 .delete,
-.quality,
+.up, .down{
+	max-height: 2vw;
+	max-width: 2vw;
+	padding: 0;
+}
+
+.delete,
 .up, .down{
 	display: inline-block;
 	margin-right: 10px;
 	padding: 5px;
+	max-height: 3vw;
+	max-width: 3vw;
 }
 
 .delete{
 	float: right;
 }
 
+.up,
+.up:hover,
+.down,
+.down:hover,
 .delete,
-.up-vote, .down-vote{
-	max-height: 3vw;
-	max-width: 3vw;
-	padding: 0;
+.delete:hover{
+	display: inline-block;
+	height: 3vw;
+	width: 3vw;
+}
+.up{
+	background-image: url(idea-box-images/upvote.svg);
+}
+
+.up:hover{
+	background-image: url(idea-box-images/upvote-hover.svg);
+}
+
+.down{
+	background-image: url(idea-box-images/downvote.svg);
+}
+
+.down:hover{
+	background-image: url(idea-box-images/downvote-hover.svg);
+}
+
+.delete{
+	background-image: url(idea-box-images/delete.svg);
+}
+
+.delete:hover{
+	background-image: url(idea-box-images/delete-hover.svg);
 }
 
 h2.title-input,
@@ -160,7 +194,6 @@ h2.title-input,
 	font-family: 'Roboto Slab', sans-serif;
 	font-weight: 500;
 	margin-right: 20px;
-	padding: 5px;
 }
 
 .idea-input	{
@@ -197,26 +230,45 @@ h2.title-input,
 
 	.save-button{
 		font-size: 6vw; 
-		mar: -.5vw;
+		height: 40px;
 	}
 
 	/*Bottom Portion and Idea Styling*/
 	.title-input{
-		font-size: 6.1vw;
+		font-size: 8.1vw;
 	}
 
 	.body-input {
-		font-size: 6vw;
+		font-size: 8vw;
 		padding-bottom: 15vh;
 	}
 
 	.idea-input{
-		font-size: 4vw;
+		font-size: 6vw;
 		font-weight: 600;
+	}
+
+	.quality{
+		margin-left: 12vw;
+		margin-right: 10px;
 	}
 
 	.quality,
 	.quality-type{
-		font-size: 4.25vw;
+		font-size: 6vw;
+		position: absolute;
+	}
+
+	.delete,
+	.up, .down{
+		min-height: 10vw;
+		min-width: 10vw;
+		padding: 0;
+	}
+
+	.delete,
+	.down{
+		position: absolute;
+		right: 15px;
 	}
 }

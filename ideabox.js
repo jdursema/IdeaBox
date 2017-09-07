@@ -33,11 +33,11 @@ function createCard(idea){
 
 		`<div class="ideaBox" id = "${idea.id}">
 			<h2 class="title-input" contenteditable="true">${idea.title}</h2>
-			<div class="delete" alt="Delete Button"></div>
-			<p class="idea-input"contenteditable="true">${idea.body}</p>
-			<div class="up-vote" alt="Upvote Button"></div>
-			<div class="down-vote" alt="Downvote Button"></div>
-			<p class="quality">quality:<span class="quality-type">${idea.quality}</span></p><hr color="#D1D3D4"/>
+				<div class="delete"></div>
+				<p class="idea-input" contenteditable="true">${idea.body}</p>
+				<div class="up"></div>
+				<div class="down"></div>
+				<p class="quality">quality:<span class="quality-type">${idea.quality}</span></p><hr color="#D1D3D4"/>
 		</div>`
 	);
 }
@@ -81,19 +81,15 @@ function cardLoader(array){
 	})
 }
 
-
 // var search = myArray.filter(function(titleInputValue, ideaInputValue){
 // 	return titleInputValue === $('.search').val()
 // 	return ideaInputValue === $('.search').val()
 // })
 
-
 $('.ideas').on('click',function(event){
 	event.preventDefault();
 
-
-	var $currentIdea = $(event.target).closest('div');
-
+	var $currentIdea = $(event.target).closest('.ideaBox');
 
 	if(event.target.className === 'delete'){
 		$currentIdea.remove();
@@ -104,7 +100,7 @@ $('.ideas').on('click',function(event){
 
 
 
-$('.ideas').on('click', '.up-vote', upIdeaQuality);
+$('.ideas').on('click', '.up', upIdeaQuality);
 
 function upIdeaQuality(event){
 	var n = $('.quality-type').text();
@@ -121,7 +117,7 @@ function upIdeaQuality(event){
 	}
 }
 
-$('.ideas').on('click', '.down-vote', downIdeaQuality);
+$('.ideas').on('click', '.down', downIdeaQuality);
 
 function downIdeaQuality(event){
 	var n = $('.quality-type').text();
@@ -136,4 +132,3 @@ function downIdeaQuality(event){
 		}
 	}
 }
-
